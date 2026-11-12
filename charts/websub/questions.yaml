@@ -1,0 +1,26 @@
+questions:
+- variable: hostname
+  description: Hostname under which WebSub should be accessible
+  type: string
+  label: WebSub Hostname
+
+- variable: securityOn
+  description: Require a MOSIP auth-manager cookie on register, publish, and subscribe. Leave off unless MOSIP_AUTH_BASE_URL is configured and callers send Cookie Authorization.
+  type: boolean
+  default: false
+  label: WebSub MOSIP auth
+
+- variable: global.keycloakBaseUrl
+  description: Required for API auth validation.
+  type: string
+  label: Keycloak Base URL
+
+- variable: kafka.enabled
+  type: boolean
+  label: Install Kafka along with WebSub?
+
+- variable: kafkaInstallationName
+  description: Name of existing Kafka Service or Statefulset
+  type: string
+  label: Existing Kafka Installation Name
+  show_if: "kafka.enabled=false"
